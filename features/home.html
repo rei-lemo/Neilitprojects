@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mobile First RWD Structure</title>
+    <style>
+        /* =========================================
+           LAYER 1: DESIGN TOKENS (Configuration)
+           We define our "ingredients" here.
+           ========================================= */
+        :root {
+            /* Palette */
+            --color-bg: #000000;
+            --color-text: #ffffff;
+            
+            /* Typography */
+            --font-primary: 'Verdana', sans-serif;
+            --text-sm: 1.2rem;   /* Mobile size */
+            --text-lg: 24px;     /* Desktop size */
+            
+            /* Spacing */
+            --spacing-sm: 10px;
+            --spacing-md: 40px;
+            
+            /* Layout Dimensions */
+            --header-height-mobile: 60px;
+            --header-height-desktop: 80px;
+        }
+
+        /* =========================================
+           LAYER 2: THE RESET (Foundation)
+           Ensure a clean slate across all browsers.
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Crucial for RWD */
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =========================================
+           LAYER 3: MOBILE BASE (The Default Journey)
+           This code runs on ALL devices (Phones, Tablets, Desktops).
+           We design for the smallest screen here.
+           ========================================= */
+        .site-header {
+            /* 3.1 Base Layout (Phone) */
+            width: 100%;
+            min-height: var(--header-height-mobile);
+            padding: var(--spacing-sm);
+            
+            /* 3.2 Visuals */
+            background-color: var(--color-bg);
+            
+            /* 3.3 Alignment (Centered for Mobile) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .site-header__title {
+            color: var(--color-text);
+            font-size: var(--text-sm);
+            text-align: center;
+            line-height: 1;
+        }
+
+        /* =========================================
+           LAYER 4: DESKTOP EXPANSION (The Override)
+           This code ONLY runs if the screen is wider than 768px.
+           It overrides the Mobile Base styles.
+           ========================================= */
+        @media (min-width: 768px) {
+            .site-header {
+                /* 4.1 Layout overrides */
+                min-height: var(--header-height-desktop);
+                justify-content: flex-start; /* Move from Center to Left */
+                padding-left: var(--spacing-md);
+            }
+
+            .site-header__title {
+                /* 4.2 Typography overrides */
+                font-size: var(--text-lg);
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Semantic Structure -->
+    <header class="site-header" role="banner">
+        <h1 class="site-header__title">Your First 100 Project</h1>
+    </header>
+
+</body>
+</html>
