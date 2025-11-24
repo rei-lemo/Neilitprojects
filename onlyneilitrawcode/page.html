@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Simple HTML Page</title>
+		<style>
+			:root{
+				--bg: #0b66d0; /* blue background */
+				--card: #ffffff;
+				--muted: #556677;
+				--accent: #084c9a;
+				--radius: 10px;
+			}
+			/* Reset-ish */
+			*{box-sizing:border-box}
+			html,body{height:100%}
+			body{
+				margin:0;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+				background: linear-gradient(180deg,var(--bg), #0a59b8);
+				color:#0b2340;
+				-webkit-font-smoothing:antialiased;
+				-moz-osx-font-smoothing:grayscale;
+				padding:32px;
+			}
+			.container{
+				max-width:1000px;
+				margin:0 auto;
+				background:var(--card);
+				border-radius:var(--radius);
+				padding:28px;
+				box-shadow:0 8px 30px rgba(3,18,50,0.25);
+			}
+			header h1{margin:0 0 8px 0;font-size:1.8rem;color:var(--accent)}
+			header p{margin:0 0 18px 0;color:var(--muted)}
+
+			table{width:100%;border-collapse:collapse;margin-top:12px}
+			th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
+			thead th{background:#f6f9fc}
+
+			form{margin-top:12px}
+			label{display:block;font-size:0.9rem;margin-bottom:6px;color:var(--muted)}
+			input[type="text"],input[type="email"],input[type="tel"]{
+				width:100%;padding:10px;border:1px solid #d7e2f1;border-radius:6px;margin-bottom:12px
+			}
+			input[type="submit"]{background:var(--bg);color:#fff;border:0;padding:10px 14px;border-radius:6px;cursor:pointer}
+
+			.image{width:100%;height:auto;border-radius:6px;margin-top:8px}
+
+			.lists{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+
+			.two-sections{display:flex;gap:16px;margin-top:16px}
+			.section{flex:1;padding:14px;border-radius:8px;background:#fbfdff;border:1px solid #eef6ff}
+
+			@media (max-width:640px){
+				.two-sections{flex-direction:column}
+				.lists{grid-template-columns:1fr}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Welcome to My Simple Page</h1>
+				<p>This page demonstrates basic HTML elements: headings, paragraphs, tables, forms, images, lists, links and layout using semantic, clean markup.</p>
+			</header>
+
+			<main>
+				<section aria-labelledby="students">
+					<h2 id="students">Student Details</h2>
+					<table aria-describedby="students">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Class</th>
+								<th scope="col">Roll No</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Alice Johnson</td>
+								<td>10</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td>Bob Smith</td>
+								<td>9</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td>Charlie Lee</td>
+								<td>11</td>
+								<td>5</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section aria-labelledby="contact">
+					<h2 id="contact">Contact Form</h2>
+					<form action="#" method="post" novalidate>
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" placeholder="Your name" required />
+
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+						<label for="mobile">Mobile Number</label>
+						<input type="tel" id="mobile" name="mobile" placeholder="123-456-7890" pattern="[0-9\-+ ()]{7,}" />
+
+						<input type="submit" value="Submit" />
+					</form>
+				</section>
+
+				<section aria-labelledby="image">
+					<h2 id="image">Sample Image</h2>
+					<img class="image" src="https://via.placeholder.com/900x300?text=Placeholder+Image" alt="Placeholder sample" />
+				</section>
+
+				<section aria-labelledby="lists">
+					<h2 id="lists">Lists</h2>
+					<div class="lists">
+						<div>
+							<h3>Ordered</h3>
+							<ol>
+								<li>First item</li>
+								<li>Second item</li>
+								<li>Third item</li>
+							</ol>
+						</div>
+						<div>
+							<h3>Unordered</h3>
+							<ul>
+								<li>Apples</li>
+								<li>Bananas</li>
+								<li>Cherries</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section aria-labelledby="link">
+					<h2 id="link">Useful Link</h2>
+					<p><a href="https://www.google.com" target="_blank" rel="noopener">Open Google</a></p>
+				</section>
+
+				<section aria-labelledby="two">
+					<h2 id="two">Two Sections</h2>
+					<div class="two-sections">
+						<div class="section" id="left">
+							<h3>Left Section</h3>
+							<p>This is the left section. You can put any content here.</p>
+						</div>
+						<div class="section" id="right">
+							<h3>Right Section</h3>
+							<p>This is the right section. Use this area for complementary content.</p>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
